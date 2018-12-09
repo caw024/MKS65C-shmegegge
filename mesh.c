@@ -30,15 +30,14 @@ int main(){
   printf("new data: %s\n", data);
 
 
-  while(1){
-    //clears memory
-    if (shmdt(data) == -1){
-      printf("%s\n", strerror(errno));
-      exit(1);
-    }
-
-    //delete memory
-    shmctl(shmid, IPC_RMID, NULL);
-    printf("memory deleted\n");
+  //clears memory
+  if (shmdt(data) == -1){
+    printf("%s\n", strerror(errno));
+    exit(1);
   }
+
+  //delete memory
+  shmctl(shmid, IPC_RMID, NULL);
+  printf("memory deleted\n");
+  
 }
