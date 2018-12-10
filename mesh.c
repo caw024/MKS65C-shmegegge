@@ -23,12 +23,11 @@ int main(){
 
 
   //Add/edit memory
-  printf("Do you want to change data? ");
-  printf("Enter a string: ");
+  printf("Enter a string to change data: ");
 
   fgets(data,200,stdin);
   printf("new data: %s\n", data);
-
+  
 
   //clears memory
   if (shmdt(data) == -1){
